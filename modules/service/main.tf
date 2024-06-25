@@ -208,6 +208,8 @@ resource "aws_ecs_service" "this" {
   lifecycle {
     ignore_changes = [
       desired_count, # Always ignored
+      tags["DEPLOYED_VERSION"], # Always ignored
+      tags["GIT_SHA"]
     ]
   }
 }
